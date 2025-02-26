@@ -115,12 +115,13 @@ The project includes comprehensive integration tests to ensure all components wo
 
 Using Docker:
 ```bash
+cd Final_ver1
 docker-compose run integration_test
 ```
 
 Local environment:
 ```bash
-cd integration_tests
+cd Final_ver1/integration_tests
 pytest integration_test.py
 ```
 
