@@ -40,6 +40,17 @@ services:
     networks:
       - app-network
 
+  integration_test:
+    build:
+      context: ./integration_tests
+      dockerfile: Dockerfile
+    depends_on:
+      - backend
+      - redis
+    networks:
+      - app-network
+    command: pytest integration_test.py -v
+
 volumes:
   redis-data:
     driver: local
