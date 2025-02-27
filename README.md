@@ -1,51 +1,70 @@
-# Task Manager Application
+# 📋 Task Manager Application
 
-A modern task management application built with React, FastAPI, and Redis.
+<div align="center">
 
-## Features
+## 📺 Project Demo Video
 
-- Create, read, update, and delete tasks
-- Set task priority levels (1-5)
-- Mark tasks as completed
-- Sort tasks by date, title, or priority
-- Schedule tasks with start and end times
-- Track task duration
-- Modern and responsive UI
+[![Task Manager Demo](https://img.youtube.com/vi/34b12OvF7To/0.jpg)](https://youtu.be/34b12OvF7To)
 
-## Prerequisites
+![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
+![FastAPI](https://img.shields.io/badge/FastAPI-005571?style=for-the-badge&logo=fastapi)
+![Redis](https://img.shields.io/badge/redis-%23DD0031.svg?&style=for-the-badge&logo=redis&logoColor=white)
+![Docker](https://img.shields.io/badge/Docker-2CA5E0?style=for-the-badge&logo=docker&logoColor=white)
+
+A modern and efficient task management application built with React, FastAPI, and Redis.
+
+[Features](#features) • [Installation](#installation) • [Quick Start](#quick-start) • [API Documentation](#api-endpoints) • [Testing](#testing)
+
+</div>
+
+## 🌟 Features
+
+- ✨ Create, read, and delete tasks
+- 🎯 Set task priority levels (1-5)
+- ✅ Mark tasks as completed
+- 🔄 Sort tasks by date, title, or priority
+- 📅 Schedule tasks with start and end times
+- ⏱️ Track task duration
+- 📱 Modern and responsive UI
+
+## 🛠️ Installation
+
+### Prerequisites
 
 - Docker and Docker Compose
-- Git
+- Node.js (for local development)
+- Python 3.8+ (for local development)
+- PowerShell (for Windows) or Bash (for Unix)
 
-## Quick Start
+### Clone the Repository
 
-1. Clone the repository:
 ```bash
-git clone <your-repo-url>
+git clone https://github.com/EASS-HIT-PART-A-2024-CLASS-VI/Omer.git
 cd task-manager
 ```
 
-2. Start the application:
-```bash
-docker-compose up --build
-```
+## 🚀 Quick Start
 
-3. Access the application:
-- Frontend: http://localhost:3000
-- Backend API: http://localhost:8000
-- Redis Commander: http://localhost:8081
+1. Start the application using Docker:
+   ```bash
+   # Clean previous builds (if needed)
+   docker-compose down
+   docker system prune -af
+   docker volume prune -f
 
-## Development Setup
+   # Build and start
+   docker-compose up --build
+   ```
+
+2. Access the application:
+   - 🌐 Frontend: http://localhost:3000
+   - 🔧 Backend API: http://localhost:8000
+   - 📊 Redis Commander: http://localhost:8081
+
+## 💻 Development Setup
 
 ### Frontend (React)
 
-The frontend is built with React and includes:
-- React Router for navigation
-- Axios for API calls
-- React DatePicker for date/time selection
-- Modern CSS with responsive design
-
-To run the frontend separately:
 ```bash
 cd frontend
 npm install
@@ -54,98 +73,81 @@ npm start
 
 ### Backend (FastAPI)
 
-The backend uses FastAPI and includes:
-- RESTful API endpoints
-- Redis database integration
-- CORS configuration
-- Data validation with Pydantic
-
-To run the backend separately:
 ```bash
 cd backend
 pip install -r requirements.txt
 uvicorn app.main:app --reload
 ```
 
-### Database (Redis)
+## 🔌 API Endpoints
 
-Redis is used as the primary database:
-- Stores tasks with unique IDs
-- Maintains task order
-- Provides fast read/write operations
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| GET    | /tasks   | Get all tasks |
+| POST   | /tasks   | Create a new task |
+| DELETE | /tasks/{task_id} | Delete a task |
 
-## API Endpoints
+## 🔧 PowerShell Commands for API Interaction
 
-- GET /tasks - Get all tasks
-- POST /tasks - Create a new task
-- PUT /tasks/{task_id} - Update a task
-- DELETE /tasks/{task_id} - Delete a task
-- GET /health/redis - Check Redis connection
-
-## Environment Variables
-
-Create a `.env` file in the root directory:
-
-```env
-REACT_APP_API_URL=http://localhost:8000
-REDIS_HOST=redis
-REDIS_PORT=6379
+**1. Get all tasks:**
+```powershell
+Invoke-RestMethod http://localhost:8000/tasks
 ```
 
-## Docker Configuration
+**2. Create a new task:**
+```powershell
+$body = @{
+    "title" = "New Task"
+    "description" = "Task description"
+    "priority" = 3
+    "start_time" = "2025-02-28T21:00:00+00:00"
+} | ConvertTo-Json
 
-The application uses Docker Compose with three services:
-1. Frontend (React)
-2. Backend (FastAPI)
-3. Redis
-4. Redis Commander (for database management)
+Invoke-RestMethod -Method POST -Uri "http://localhost:8000/tasks" -Body $body -ContentType "application/json"
+```
 
-## Integration Tests
+**3. Delete a task:**
+```powershell
+Invoke-RestMethod -Method DELETE http://localhost:8000/tasks/{id}
+```
 
-The project includes comprehensive integration tests to ensure all components work together seamlessly.
+## 🧪 Testing
 
-### Test Coverage
-
-- API Endpoints interaction
-- Redis data persistence
-- Frontend-Backend communication
-- Error handling and edge cases
-
-### Running Tests
-
-Using Docker:
+Make sure Docker containers are running:
 ```bash
-cd Final_ver1
-docker-compose run integration_test
+docker-compose up -d
 ```
 
-Local environment:
+Run backend tests:
 ```bash
-cd Final_ver1/integration_tests
-pytest integration_test.py
+docker-compose exec backend pytest -v
 ```
 
-### Test Structure
+Run frontend tests:
+```bash
+docker-compose exec frontend npm test -- --watchAll=false
+```
 
-Tests are located in `integration_tests/integration_test.py` and cover:
-- Task creation and validation
-- Task updates and state changes
-- Data persistence verification
-- Error handling scenarios
-- API response validation
+## 📁 Project Structure
 
-## Contributing
+```
+task-manager/
+├── frontend/          # React frontend application
+├── backend/           # FastAPI backend application
+├── scripts/           # Utility scripts
+├── docker-compose.yml # Docker configuration
+└── README.md         # This file
+```
 
-1. Fork the repository
-2. Create a feature branch
-3. Commit your changes
-4. Push to the branch
-5. Create a Pull Request
-
-## License
+## 📄 License
 
 MIT License
 
-## Author
+## 👨‍💻 Author
 
 Omer Trabulski
+
+---
+<div align="center">
+Made with ❤️ using React, FastAPI, and Redis
+</div> 
