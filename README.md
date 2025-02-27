@@ -128,6 +128,48 @@ docker-compose exec frontend npm test -- --watchAll=false
 ```
 
 ## 📁 Project Structure
+ ```
+- task-manager/
+- ├── frontend/          # React frontend application
+- ├── backend/           # FastAPI backend application
+- ├── scripts/           # Utility scripts
+- ├── docker-compose.yml # Docker configuration
+- └── README.md         # This file
++ task-manager/
++ ├── frontend/
++ │   ├── public/
++ │   │   └── index.html
++ │   ├── src/
++ │   │   ├── components/
++ │   │   │   ├── TaskList.js
++ │   │   │   ├── CreateTask.js
++ │   │   │   ├── EditTask.js
++ │   │   │   └── About.js
++ │   │   ├── styles/
++ │   │   │   ├── App.css
++ │   │   │   ├── TaskList.css
++ │   │   │   ├── CreateTask.css
++ │   │   │   ├── EditTask.css
++ │   │   │   └── About.css
++ │   │   ├── App.js
++ │   │   └── index.js
++ │   ├── package.json
++ │   └── Dockerfile
++ ├── backend/
++ │   ├── app/
++ │   │   ├── __init__.py
++ │   │   ├── main.py
++ │   │   ├── database.py
++ │   │   ├── models.py
++ │   │   └── test_main.py
++ │   ├── requirements.txt
++ │   └── Dockerfile
++ ├── structure.png
++ ├── docker-compose.yml
++ ├── .gitignore
++ └── README.md
+  ```
+
 
 <div align="center">
   <img src="https://github.com/EASS-HIT-PART-A-2024-CLASS-VI/Omer/blob/main/structure.png" alt="Project Structure" width="800"/>
