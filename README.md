@@ -129,11 +129,9 @@ docker-compose exec frontend npm test -- --watchAll=false
 
   ## 📁 Project Structure
   
-  <div align="center">
-    <img src="structure.png" alt="Project Structure" width="800"/>
-  </div>
+
   
-- ```
+- ```bash
 - Final_Project/
 - ├── backend/
 - │   ├── app/
