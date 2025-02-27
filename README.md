@@ -127,14 +127,60 @@ Run frontend tests:
 docker-compose exec frontend npm test -- --watchAll=false
 ```
 
-## 📁 Project Structure
- ```
-- task-manager/
-- ├── frontend/          # React frontend application
-- ├── backend/           # FastAPI backend application
-- ├── scripts/           # Utility scripts
-- ├── docker-compose.yml # Docker configuration
-- └── README.md         # This file
+  ## 📁 Project Structure
+  
+  <div align="center">
+    <img src="structure.png" alt="Project Structure" width="800"/>
+  </div>
+  
+- ```
+- Final_Project/
+- ├── backend/
+- │   ├── app/
+- │   │   ├── __init__.py
+- │   │   ├── database.py
+- │   │   ├── main.py
+- │   │   ├── models.py
+- │   │   └── test_main.py
+- │   ├── Dockerfile
+- │   └── requirements.txt
+- ├── frontend/
+- │   ├── public/
+- │   │   └── index.html
+- │   ├── src/
+- │   │   ├── components/
+- │   │   │   ├── About.js
+- │   │   │   ├── CreateTask.js
+- │   │   │   ├── EditTask.js
+- │   │   │   └── TaskList.js
+- │   │   ├── images/
+- │   │   │   └── structure.png
+- │   │   ├── styles/
+- │   │   │   ├── About.css
+- │   │   │   ├── App.css
+- │   │   │   ├── CreateTask.css
+- │   │   │   ├── EditTask.css
+- │   │   │   └── TaskList.css
+- │   │   ├── App.js
+- │   │   ├── index.css
+- │   │   └── index.js
+- │   ├── Dockerfile
+- │   ├── package-lock.json
+- │   └── package.json
+- ├── scripts/
+- │   └── run_tests.ps1
+- ├── .gitignore
+- ├── docker-compose.yml
+- ├── README.md
+- └── structure.png
++ ```
++ /
++ ├── frontend/         # React application with components and styles
++ ├── backend/          # FastAPI server with database and models
++ ├── scripts/          # Utility scripts for testing and deployment
++ ├── docker-compose.yml # Docker configuration
++ └── README.md         # Documentation
+  ```
 
 
 <div align="center">
