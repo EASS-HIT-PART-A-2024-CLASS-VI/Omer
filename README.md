@@ -135,41 +135,22 @@ docker-compose exec frontend npm test -- --watchAll=false
 
 <pre style="background-color: #f6f8fa; padding: 16px; border-radius: 6px; font-family: monospace;">
 📦 Task Manager
-├── frontend/                  # React application
+├── backend/
+│   ├── app/
+│   ├── Dockerfile
+│   └── requirements.txt
+├── frontend/
 │   ├── public/
-│   │   └── index.html
 │   ├── src/
 │   │   ├── components/
-│   │   │   ├── 📄 About.js      # About page component
-│   │   │   ├── 📄 CreateTask.js # Task creation form
-│   │   │   ├── 📄 EditTask.js   # Task editing component
-│   │   │   └── 📄 TaskList.js   # Main task display
-│   │   ├── styles/
-│   │   │   ├── 🎨 About.css
-│   │   │   ├── 🎨 App.css
-│   │   │   ├── 🎨 CreateTask.css
-│   │   │   ├── 🎨 EditTask.css
-│   │   │   └── 🎨 TaskList.css
-│   │   ├── 📄 App.js            # Main application component
-│   │   ├── 🎨 index.css
-│   │   └── 📄 index.js          # Application entry point
-│   ├── 🐳 Dockerfile            # Frontend container config
-│   ├── 📦 package.json          # Dependencies and scripts
+│   │   ├── images/
+│   │   └── styles/
+│   ├── Dockerfile
+│   ├── package.json
 │   └── package-lock.json
-├── backend/                   # FastAPI server
-│   ├── app/
-│   │   ├── __init__.py
-│   │   ├── 💾 database.py       # Redis database connection
-│   │   ├── 🚀 main.py           # API endpoints
-│   │   ├── 📊 models.py         # Data models
-│   │   └── 🧪 test_main.py      # API tests
-│   ├── 🐳 Dockerfile            # Backend container config
-│   └── 📦 requirements.txt      # Python dependencies
-├── scripts/
-│   └── 🧪 run_tests.ps1         # Test automation script
-├── docker-compose.yml        # Container orchestration
-├── .gitignore               # Git ignore patterns
-└── README.md                # Project documentation
+├── docker-compose.yml
+├── run_tests.ps1
+└── run_tests.sh
 </pre>
 
 ## 📄 License
